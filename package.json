@@ -1,0 +1,31 @@
+{
+  "name": "hubot-sentimental",
+  "version": "1.0.0",
+  "author": "Jason Solis",
+  "keywords": [
+    "github hubot sentimental adapter"
+  ],
+  "description": "A hubot adapter for tracking happiness levels of users via the Sentimental database",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/tombell/hubot-twilio/raw/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jsolis/hubot-sentimental.git"
+  },
+  "dependencies": {
+    "Sentimental": "0.0.4",
+    "redis": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "coffee-script": "1.1.3"
+  },
+  "main": "./src/sentimental",
+  "engine": "node > 0.6.0 < 0.11",
+  "engines": {
+    "node": "*"
+  }
+}
