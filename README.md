@@ -16,6 +16,9 @@ Hubot check on everyone
 
 See [`src/sentimental.coffee`](src/sentimental.coffee) for full documentation.
 
+## Data
+[![NPM](https://nodei.co/npm/hubot-sentimental.png?downloads=true&stars=true)](https://nodei.co/npm/hubot-sentimental.png?downloads=true&stars=true)
+
 ## Installation
 
 In hubot project repo, run:
