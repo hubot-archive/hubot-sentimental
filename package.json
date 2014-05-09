@@ -3,7 +3,10 @@
   "version": "1.0.1",
   "author": "Jason Solis",
   "keywords": [
-    "github hubot sentimental adapter"
+    "github",
+    "hubot",
+    "sentimental",
+    "adapter"
   ],
   "description": "A hubot adapter for tracking happiness levels of users via the Sentimental database",
   "licenses": [
