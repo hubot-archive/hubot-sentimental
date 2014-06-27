@@ -17,7 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jsolis/hubot-sentimental.git"
+    "url": "https://github.com/hubot-scripts/hubot-sentimental.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hubot-scripts/hubot-sentimental/issues"
   },
   "dependencies": {
     "Sentimental": "0.0.4",
