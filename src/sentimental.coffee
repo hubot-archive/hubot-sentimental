@@ -26,8 +26,18 @@ Redis = require "redis"
 
 module.exports = (robot) ->
 
-  info   = Url.parse process.env.REDISTOGO_URL or process.env.REDISCLOUD_URL or process.env.BOXEN_REDIS_URL or 'redis://localhost:6379'
-  client = Redis.createClient(info.port, info.hostname)
+# check for redistogo auth string for heroku users
+# see https://github.com/hubot-scripts/hubot-redis-brain/issues/3
+  info = Url.parse process.env.REDISTOGO_URL or process.env.REDISCLOUD_URL or process.env.BOXEN_REDIS_URL or 'redis://localhost:6379'
+  if info.auth
+    client = Redis.createClient(info.port, info.hostname, {no_ready_check: true})
+    client.auth info.auth.split(":")[1], (err) ->
+      if err 
+        robot.logger.error "hubot-sentimental: Failed to authenticate to Redis"
+      else
+        robot.logger.info "hubot-sentimental: Successfully authenticated to Redis" 
+  else
+    client = Redis.createClient(info.port, info.hostname)
 
   robot.hear /(.*)/i, (msg) ->
     spokenWord = msg.match[1]
@@ -53,7 +63,7 @@ module.exports = (robot) ->
         if analysis.score < -2
           msg.send "stay positive #{msg.message.user.name}"
 
-        robot.logger.debug "#{username} now has #{sent[username].score} / #{sent[username].average}"
+        robot.logger.debug "hubot-sentimental: #{username} now has #{sent[username].score} / #{sent[username].average}"
 
   robot.respond /check on (.*)/i, (msg) ->
     username = msg.match[1]
