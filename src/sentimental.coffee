@@ -28,7 +28,7 @@ module.exports = (robot) ->
 
 # check for redistogo auth string for heroku users
 # see https://github.com/hubot-scripts/hubot-redis-brain/issues/3
-  info = Url.parse process.env.REDISTOGO_URL or process.env.REDISCLOUD_URL or process.env.BOXEN_REDIS_URL or 'redis://localhost:6379'
+  info = Url.parse process.env.REDISTOGO_URL or process.env.REDISCLOUD_URL or process.env.BOXEN_REDIS_URL or process.env.REDIS_URL or 'redis://localhost:6379'
   if info.auth
     client = Redis.createClient(info.port, info.hostname, {no_ready_check: true})
     client.auth info.auth.split(":")[1], (err) ->
