@@ -7,6 +7,7 @@
 #
 # Configuration:
 #   REDISTOGO_URL
+#   HUBOT_SENTIMENTAL_QUIET
 #
 # Commands:
 #   hubot check on <username>
@@ -60,7 +61,7 @@ module.exports = (robot) ->
 
         client.set "sent:userScore", JSON.stringify(sent)
 
-        if analysis.score < -2
+        if analysis.score < -2 and not process.env.HUBOT_SENTIMENTAL_QUIET?
           msg.send "stay positive #{msg.message.user.name}"
 
         robot.logger.debug "hubot-sentimental: #{username} now has #{sent[username].score} / #{sent[username].average}"
@@ -80,4 +81,3 @@ module.exports = (robot) ->
               msg.send "#{user} has a happiness average of #{data.average}"
       else
         msg.send "I haven't collected data on anybody yet"
-
