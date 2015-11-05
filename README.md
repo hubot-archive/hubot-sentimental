@@ -2,7 +2,7 @@
 
 ## Description
 
-This Hubot adapter uses the [Sentimental](https://github.com/thinkroth/Sentimental) 
+This Hubot adapter uses the [Sentimental](https://github.com/thinkroth/Sentimental)
 node package to score how positive or negative the spoken words being used in your room are.
 As users speak we will analyze how positive or negative your words are using Sentimental
 and keep a running average. You can then ask how everyone is doing by using one of the following commands.
@@ -47,8 +47,12 @@ Hubot> jsolis has a happiness average of 0.9672131147540983
 
 Just send pull request or file an issue !
 
+## Configuration
+
+### `HUBOT_SENTIMENTAL_QUIET`
+
+Make the bot a little more quiet.
+
 ## Copyright
 
 Copyright &copy; Jason Solis. See LICENSE for details.
-
-
