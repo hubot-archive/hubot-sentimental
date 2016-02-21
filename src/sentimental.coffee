@@ -66,8 +66,8 @@ module.exports = (robot) ->
 
         robot.logger.debug "hubot-sentimental: #{username} now has #{sent[username].score} / #{sent[username].average}"
 
-  robot.respond /check on (.*)/i, (msg) ->
-    username = msg.match[1]
+  robot.respond /check (on )?(.*)/i, (msg) ->
+    username = msg.match[2]
     client.get "sent:userScore", (err, reply) ->
       if err
         robot.emit 'error', err
